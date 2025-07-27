@@ -8,7 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage {
+
     public static final String LOGIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
+
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -44,12 +46,13 @@ public class LoginPage {
     }
 
     public boolean isLoginSuccessful() {
+
         return wait.until(ExpectedConditions.urlToBe("https://stellarburgers.nomoreparties.site/"));
 
     }
 
     public void clickForgotPasswordLink() {
+
         wait.until(ExpectedConditions.elementToBeClickable(forgotPasswordLink)).click();
     }
-
 }

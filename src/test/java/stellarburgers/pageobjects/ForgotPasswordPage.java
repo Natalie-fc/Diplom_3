@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ForgotPasswordPage {
+
     public static final String FORGOT_PASSWORD_URL = "https://stellarburgers.nomoreparties.site/forgot-password";
 
     private final WebDriver driver;
@@ -28,7 +29,7 @@ public class ForgotPasswordPage {
     private final By loginLink = By.linkText("Войти");
 
     public void clickLoginLink() {
+
         wait.until(ExpectedConditions.elementToBeClickable(loginLink)).click();
     }
-
 }

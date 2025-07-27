@@ -10,5 +10,5 @@ public class UserFactory {
         String email = RandomStringUtils.randomAlphabetic(6) + "@yandex.ru";
         String password = RandomStringUtils.randomAlphanumeric(8);
         return new User(name, email, password);
-}
+    }
 }

@@ -8,7 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class MainPage {
+
     public static final String MAIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
+
     private final WebDriver driver;
 
     public MainPage(WebDriver driver) {
@@ -32,5 +34,4 @@ public class MainPage {
 
         driver.findElement(profileButton).click();
     }
-
 }

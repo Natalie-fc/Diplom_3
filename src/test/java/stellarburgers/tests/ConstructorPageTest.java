@@ -1,6 +1,7 @@
 package stellarburgers.tests;
 
 import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +21,8 @@ public class ConstructorPageTest extends BaseTest {
     }
 
     @Test
-    @Description("Переход к разделу 'Соусы'")
+    @DisplayName("Переход к разделу 'Соусы'")
+    @Description("Происходит успешный переход к разделу 'Соусы'")
     public void switchToSaucesTabTest() {
         constructorPage.clickSaucesTab();
         String activeTab = constructorPage.getActiveTabText();
@@ -28,7 +30,8 @@ public class ConstructorPageTest extends BaseTest {
     }
 
     @Test
-    @Description("Переход к разделу 'Начинки'")
+    @DisplayName("Переход к разделу 'Начинки'")
+    @Description("Происходит успешный переход к разделу 'Начинки'")
     public void switchToFillingsTabTest() {
         constructorPage.clickFillingsTab();
         String activeTab = constructorPage.getActiveTabText();
@@ -36,7 +39,8 @@ public class ConstructorPageTest extends BaseTest {
     }
 
     @Test
-    @Description("Переход к разделу 'Булки'")
+    @DisplayName("Переход к разделу 'Булки'")
+    @Description("Сначала происходит переход к разделу 'Соусы', затем происходит переход к разделу 'Булки'")
     public void switchToBunsTabTest() {
         constructorPage.clickSaucesTab();
         constructorPage.waitForActiveTab("Соусы");

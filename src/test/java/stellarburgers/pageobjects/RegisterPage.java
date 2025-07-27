@@ -10,7 +10,9 @@ import stellarburgers.models.User;
 import java.time.Duration;
 
 public class RegisterPage {
+
     public static final String REGISTER_PAGE_URL = "https://stellarburgers.nomoreparties.site/register";
+
     private final WebDriver driver;
     private final WebDriverWait wait;
 

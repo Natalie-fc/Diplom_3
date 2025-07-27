@@ -11,7 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ConstructorPage {
+
     public static final String MAIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
+
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -34,8 +36,9 @@ public class ConstructorPage {
 
     @Step("Кликаем по вкладке 'Булки'")
     public void clickBunsTab() {
-WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(bunsTab));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(bunsTab));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
         wait.until(ExpectedConditions.elementToBeClickable(bunsTab)).click();
     }
 
@@ -54,13 +57,12 @@ WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(bu
     @Step("Получаем текст активной вкладки")
     public String getActiveTabText() {
         WebElement active = wait.until(ExpectedConditions.visibilityOfElementLocated(activeTab));
-        return active.getText();
+            return active.getText();
     }
 
     @Step("Ожидаем, что активная вкладка будет с текстом: {expectedText}")
     public void waitForActiveTab(String expectedText) {
+
         wait.until(ExpectedConditions.textToBe(activeTab, expectedText));
     }
-
-
 }
