@@ -1,6 +1,7 @@
 package stellarburgers.tests;
 
 import io.qameta.allure.*;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,25 +11,38 @@ import stellarburgers.pageobjects.ForgotPasswordPage;
 import stellarburgers.pageobjects.LoginPage;
 import stellarburgers.pageobjects.MainPage;
 import stellarburgers.pageobjects.RegisterPage;
+import stellarburgers.steps.UserSteps;
+
+import static org.apache.http.HttpStatus.SC_OK;
 
 @Epic("Аутентификация")
 @Feature("Авторизация пользователя")
 public class LoginPageTest extends BaseTest {
 
     private User user;
+    private String accessToken;
+    private final UserSteps userSteps = new UserSteps();
 
     @Before
     public void createUser() {
         user = UserFactory.createRandomUser();
+        userSteps.register(user)
+                        .then().statusCode(SC_OK);
+        accessToken = userSteps.getAccessToken(user);
 
-        driver.get(RegisterPage.REGISTER_PAGE_URL);
-        RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.register(user);
+    }
+
+    @After
+    public void tearDown() {
+        if (accessToken != null) {
+            userSteps.delete(accessToken);
+        }
+        super.tearDown();
     }
 
 
     @Test
-    @Story("Вход с главное страницы")
+    @Story("Вход с главной страницы")
     @Description("Вход через кнопку 'Войти в аккаунт' на главной странице")
     public void loginFromMainPageTest() {
 

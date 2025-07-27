@@ -1,4 +1,4 @@
-# Diplom_2
+# Diplom_3
 # 🌟 Stellar Burgers UI Tests
 
 Автоматизированные UI-тесты для веб-приложения [Stellar Burgers](https://stellarburgers.nomoreparties.site/), написанные с использованием Selenium WebDriver и JUnit.
